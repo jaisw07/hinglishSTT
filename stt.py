@@ -9,6 +9,7 @@ from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 import wavio
 import os
 import google.generativeai as genai
+from dotenv import load_dotenv
 import re # Added for markdown stripping
 
 # --- Configuration ---
@@ -80,6 +81,7 @@ def transcribe_audio(pipe, filePath):
 def initialize_gemini():
     """Initializes the Gemini model and checks for the API key."""
     try:
+        load_dotenv()
         api_key = os.environ["GEMINI_API_KEY"]
         genai.configure(api_key=api_key)
         model = genai.GenerativeModel('gemini-3-flash-preview') # Using gemini-1.0-pro as it's a stable choice

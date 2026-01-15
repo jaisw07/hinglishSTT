@@ -9,10 +9,10 @@ channels:
   - https://repo.anaconda.com/pkgs/msys2
 dependencies:
   - python=3.10 # Specify Python version
-  - ffmpeg      # Install ffmpeg executable via conda
+  - ffmpeg # Install ffmpeg executable via conda
   - pip
   - pip:
-      - torch           # Let pip resolve the best CUDA-compatible version
+      - torch # Let pip resolve the best CUDA-compatible version
       - torchvision
       - torchaudio
       - transformers
