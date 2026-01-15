@@ -2,7 +2,7 @@ import torch
 import ffmpeg
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 
-def runTranscription(filePath):
+def initializeModel():
     # Set device (GPU if available, otherwise CPU) and precision
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
     torch_dtype = torch.float16 if torch.cuda.is_available() else torch.float32
@@ -37,6 +37,9 @@ def runTranscription(filePath):
         }
     )
 
+    return pipe
+
+def transcribe(pipe, filePath):
     # Process audio file and print transcription
     result = pipe(filePath)               # Run inference
     return result["text"]               # Print transcribed text
