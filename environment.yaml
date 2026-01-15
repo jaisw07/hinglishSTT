@@ -21,3 +21,4 @@ dependencies:
       - numpy
       - wavio
       - google-generativeai
+      - dot_env
